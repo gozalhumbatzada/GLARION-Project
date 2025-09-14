@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GLARION Project</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #0d121c;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+.card {
+  @apply bg-gray-900 p-4 rounded-xl shadow-lg transition-transform duration-300 hover:scale-105 hover:shadow-2xl;
+}
+
+.section-title {
+  font-size: 2rem !important; /* 48px base size */
+  font-weight: 600 !important; /* Extra bold */
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  color: #4ade80 !important;
+  line-height: 1.2;
+}
+@media (min-width: 768px) {
+  .section-title {
+    font-size: 4rem !important; /* 64px on medium screens */
+  }
+}
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-in-down { animation: fadeInDown 1s ease-out; }
+    .animate-fade-in-up { animation: fadeInUp 1s ease-out; }
+    .index-img {
+      width: 200px;
+      height: auto;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+    }
+    .hero-section {
+      position: relative;
+      background: linear-gradient(to bottom right, rgba(0, 77, 54, 0.8), rgba(17, 24, 39, 0.8), rgba(13, 18, 28, 0.8)),
+                  url('image/website.jpg') no-repeat center center/cover;
+      padding: 5rem 0;
+      min-height: 400px;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 10;
+    }
+    .hero-section h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      line-height: 1.2;
+      color: white;
+      margin-bottom: 1rem;
+      animation: fade-in-down 0.5s ease-out;
+    }
+    @media (min-width: 640px) {
+      .hero-section h1 {
+        font-size: 3.5rem;
+      }
+    }
+    @media (min-width: 768px) {
+      .hero-section h1 {
+        font-size: 4.5rem;
+      }
+      .hero-section {
+        padding: 8rem 0;
+      }
+    }
+    .subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: rgb(209, 213, 219);
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      animation: fade-in-up 0.5s ease-out 0.2s;
+      animation-fill-mode: both;
+    }
+    @media (min-width: 768px) {
+      .subtitle {
+        font-size: 1.75rem;
+      }
+    }
+    .description {
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: rgb(156, 163, 175);
+      margin-top: 1rem;
+      animation: fade-in-up 0.5s ease-out 0.2s;
+      animation-fill-mode: both;
+    }
+    @media (min-width: 768px) {
+      .description {
+        font-size: 1.5rem;
+      }
+    }
+    .diagram-img {
+      width: 100%;
+      border-radius: 0.75rem;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+    }
+    .pdf-link {
+      display: inline-flex;
+      align-items: center;
+      background: #4ade80;
+      color: black;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+    .pdf-link:hover {
+      background: #22c55e;
+    }
+    .pdf-embed {
+      width: 100%;
+      height: 800px;
+      border: none;
+      border-radius: 0.75rem;
+    }
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #4ade80;
+    }
+.product-img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: 200px;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 0.75rem;
+  margin-top: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+  </style>
+</head>
+<body class="text-gray-200 antialiased">
+  <!-- Navbar -->
+  <nav class="bg-gray-950 shadow-md sticky top-0 z-50">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <a href="#">
+        <img src="image/Logo without slogan.png" alt="GLARION Logo" class="h-16">
+      </a>
+      <div class="hidden md:flex space-x-8 font-medium">
+        <a href="#about" class="text-gray-400 hover:text-[#4ade80] transition duration-300">About</a>
+        <a href="#products" class="text-gray-400 hover:text-[#4ade80] transition duration-300">Products</a>
+        <a href="#mission" class="text-gray-400 hover:text-[#4ade80] transition duration-300">Mission & Vision</a>
+        <a href="#why" class="text-gray-400 hover:text-[#4ade80] transition duration-300">Why Us</a>
+        <a href="#technical" class="text-gray-400 hover:text-[#4ade80] transition duration-300">Technical</a>
+        <a href="#team" class="text-gray-400 hover:text-[#4ade80] transition duration-300">Team</a>
+        <a href="#contact" class="text-gray-400 hover:text-[#4ade80] transition duration-300">Contact</a>
+      </div>
+      <button id="mobile-menu-button" class="md:hidden text-gray-400 focus:outline-none">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-950 shadow-inner py-2">
+      <a href="#about" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">About</a>
+      <a href="#products" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">Products</a>
+      <a href="#mission" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">Mission & Vision</a>
+      <a href="#why" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">Why Us</a>
+      <a href="#technical" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">Technical</a>
+      <a href="#team" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">Team</a>
+      <a href="#contact" class="block px-6 py-2 text-gray-300 hover:bg-gray-800">Contact</a>
+    </div>
+  </nav>
+
+<!-- Hero Section -->
+<header class="hero-section" style="background-image: url('image/hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh; display: flex; align-items: center;">
+  <div class="container">
+    <h1>Turning Wind Turbine Waste Into Life-Saving Safety Products.</h1>
+    <p class="subtitle">With the glow that guides, Glarion lights the way to safety.</p>
+    <p class="description">Microwave-Assisted Green Solvolysis of Wind Turbine Blades for Upcycling into Photoluminescent Safety Tiles and Industrial Floor Blocks</p>
+    <a href="#about" class="mt-6 inline-block bg-[#4ade80] text-black py-3 px-6 rounded-lg font-bold hover:bg-[#22c55e]">Explore Our Project</a>
+  </div>
+</header>
+
+ <!-- Problem & Solution Section (About) -->
+<section id="about" class="py-20 bg-gray-900">
+  <div class="container mx-auto px-6 text-center">
+    <h2 class="section-title mb-12">Problem & Solution</h2>
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h3 class="text-3xl font-semibold text-white flex items-center justify-center gap-3">
+          <i class="fas fa-exclamation-triangle text-[#4ade80]"></i> The Problem
+        </h3>
+        <p class="text-lg leading-relaxed text-gray-300">
+          Decommissioned wind turbine blades, made of glass fiber-reinforced plastic (GFRP), create large amounts of non-biodegradable waste. Traditional disposal like landfilling or incineration is unsustainable, energy-intensive, and environmentally harmful, failing to meet circular economy goals.
+        </p>
+        <img src="image/waste.webp" alt="Wind Turbine Waste" class="product-img mx-auto">
+      </div>
+      <div class="space-y-6">
+        <h3 class="text-3xl font-semibold text-white flex items-center justify-center gap-3">
+          <i class="fas fa-check-circle text-[#4ade80]"></i> Our Solution
+        </h3>
+        <p class="text-lg leading-relaxed text-gray-300">
+          Glarion upcycles wind turbine blade waste into photoluminescent safety tiles and rubber floor blocks. Using a green solvolysis process, we recover valuable fibers and chemicals, producing durable, fire-resistant, and slip-safe products while supporting a circular economy.
+        </p>
+        <img src="image/solv.png" alt="Solvolysis Process" class="product-img mx-auto">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Products Section -->
+  <section id="products" class="py-20 bg-gray-950">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center">Our Products</h2>
+    <div class="grid md:grid-cols-2 gap-12 items-start"> <!-- Added items-start for vertical alignment -->
+      <!-- Photoluminescent Safety Tiles -->
+      <div class="card flex flex-col items-center"> <!-- Added flex and items-center -->
+        <div class="flex items-center space-x-4 mb-4">
+          <i class="fas fa-lightbulb text-4xl text-[#4ade80]"></i>
+          <h3 class="text-3xl font-semibold text-white">Photoluminescent Safety Tiles</h3>
+        </div>
+        <p class="text-lg leading-relaxed text-gray-300 mb-4">
+         These tiles absorb light and glow in the dark, guiding people safely in low-light areas. Fire-resistant, slip-safe, and reusable, they meet strict safety standards, making them ideal for high-traffic and emergency spaces.
+        </p>
+        <div class="space-y-4">
+          <p class="text-gray-300"><strong>Product Size:</strong> Customizable for specific applications.</p>
+          <p class="text-gray-300"><strong>Price:</strong> 11,63€ per piece; Competitive pricing based on order volume; contact us for a quote.</p>
+        </div>
+        <img src="image/darktiles.png" alt="Photoluminescent Safety Tiles" class="product-img">
+      </div>
+      <!-- Rubber Industrial Floor Blocks -->
+      <div class="card flex flex-col items-center"> <!-- Added flex and items-center -->
+        <div class="flex items-center space-x-4 mb-4">
+          <i class="fas fa-shoe-prints text-4xl text-[#4ade80]"></i>
+          <h3 class="text-3xl font-semibold text-white">Rubber Industrial Floor Blocks</h3>
+        </div>
+        <p class="text-lg leading-relaxed text-gray-300 mb-4">
+          These floor blocks are made from recycled wind turbine materials, offering durability and slip resistance. Safe, sustainable, and long-lasting, they are ideal for industrial and commercial spaces.
+
+        </p>
+        <div class="space-y-4">
+          <p class="text-gray-300"><strong>Product Size:</strong> Available in 50cm x 50cm x 2cm blocks, with modular installation options.</p>
+          <p class="text-gray-300"><strong>Price:</strong> Affordable pricing tailored to project needs; reach out for details.</p>
+        </div>
+        <img src="image/floor_blocks.jpg" alt="Rubber Industrial Floor Blocks" class="product-img">
+      </div>
+    </div>
+  </div>
+</section>
+  
+  <!-- Mission & Vision Section -->
+  <section id="mission" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Mission & Vision</h2>
+      <p class="text-center text-xl text-gray-300 mb-12">We protect both people and the planet.</p>
+      <div class="grid md:grid-cols-2 gap-12">
+        <div class="card text-center">
+          <i class="fas fa-bullseye text-4xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-3xl font-semibold text-white mb-3">Our Mission</h3>
+          <p class="text-gray-300 leading-relaxed">
+            To pioneer sustainable recycling methods that transform composite waste from wind turbine blades into safe, durable, and innovative products, reducing environmental impact and enhancing safety worldwide.
+          </p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-eye text-4xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-3xl font-semibold text-white mb-3">Our Vision</h3>
+          <p class="text-gray-300 leading-relaxed">
+            To lead the global transition toward a circular economy in renewable energy infrastructure by setting a benchmark for green recycling technologies and sustainable product development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Why Choose Us Section -->
+  <section id="why" class="py-20 bg-gray-950">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Why Choose Us?</h2>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="card text-center">
+          <i class="fas fa-leaf text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Sustainability</h3>
+          <p class="text-gray-300">Transforming waste into valuable products with minimal environmental impact, supporting a circular economy.</p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-shield-alt text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Durability</h3>
+          <p class="text-gray-300">High-quality materials engineered to withstand demanding industrial and commercial conditions.</p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-hard-hat text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Safety</h3>
+          <p class="text-gray-300">Fire-resistant and slip-safe designs ensure reliable performance in critical safety applications.</p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-lightbulb text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Innovation</h3>
+          <p class="text-gray-300">Cutting-edge microwave-assisted green solvolysis technology for efficient and eco-friendly recycling.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- How It Works Section -->
+  <section id="how" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">How do Photoluminescent Tiles work?</h2>
+      <div class="flex flex-col md:flex-row justify-center items-center space-y-4 md:space-y-0 md:space-x-8">
+        <div class="text-center">
+          <i class="fas fa-sun text-4xl text-[#4ade80] mb-2"></i>
+          <p class="text-gray-300">Light In</p>
+        </div>
+        <i class="fas fa-arrow-right text-3xl text-gray-400 hidden md:block"></i>
+        <div class="text-center">
+          <i class="fas fa-square text-4xl text-[#4ade80] mb-2"></i>
+          <p class="text-gray-300">Tile Absorbs</p>
+        </div>
+        <i class="fas fa-arrow-right text-3xl text-gray-400 hidden md:block"></i>
+        <div class="text-center">
+          <i class="fas fa-moon text-4xl text-[#4ade80] mb-2"></i>
+          <p class="text-gray-300">Glow Out</p>
+        </div>
+      </div>
+      <p class="text-center text-lg text-gray-300 mt-8 max-w-2xl mx-auto">
+        Our photoluminescent tiles absorb ambient light during the day and emit a reliable glow during emergencies, providing electricity-free illumination for safe navigation.
+      </p>
+     <img src="image/lightdark.png" 
+          alt="tiles" 
+          class="diagram-img mx-auto w-[400px] h-auto">
+    </div>
+  </section>
+  <!-- Applications Section -->
+  <section id="applications" class="py-20 bg-gray-950">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Applications</h2>
+      <div class="grid md:grid-cols-4 gap-8">
+        <div class="card text-center">
+          <i class="fas fa-industry text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Factories</h3>
+          <p class="text-gray-300">Enhance safety with glow-in-the-dark tiles for emergency exits and hazardous zones.</p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-bolt text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Power Plants</h3>
+          <p class="text-gray-300">Durable, slip-safe flooring and illuminated evacuation routes for critical operations.</p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-ship text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Offshore Rigs</h3>
+          <p class="text-gray-300">Explosion-proof, photoluminescent tiles for safe navigation in high-risk environments.</p>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-tree text-5xl text-[#4ade80] mb-4"></i>
+          <h3 class="text-2xl font-semibold text-white mb-2">Green Infrastructure</h3>
+          <p class="text-gray-300">Compliant with EU fire safety and circular economy standards for sustainable projects.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Images Section -->
+<section id="images" class="py-20 bg-gray-950">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center">Image Gallery</h2>
+    <div class="grid md:grid-cols-2 gap-8">
+      <div class="card">
+        <img src="image/safety_tiles.webp" alt="Safety Tiles in Use" class="product-img">
+        <p class="text-gray-300 mt-4">Photoluminescent safety tiles illuminating an emergency exit in a building.</p>
+      </div>
+      <div class="card">
+        <img src="image/rubbermat.jpg" alt="Floor Blocks in Factory" class="product-img">
+        <p class="text-gray-300 mt-4">Rubber industrial floor blocks installed in a high-traffic factory environment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+  <!-- Technical Deep Dive Section -->
+  <section id="technical" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Technical Deep Dive</h2>
+      <div class="space-y-4">
+        <details>
+          <summary>Material & Process Overview</summary>
+          <div class="p-4 bg-gray-950 rounded-lg">
+            <p class="text-gray-300">Our process uses hydrogen peroxide (H₂O₂) as a strong oxidizing agent and acetic acid (CH₃COOH) as a mild acid and solvent. Together, they form peracetic acid in situ, which decomposes under microwave heating to generate reactive radicals that efficiently break down the epoxy network in composite waste, preserving glass fibers for reuse.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Sankey Diagram</summary>
+          <section id="sankey" class="py-24 bg-gray-950/40 backdrop-blur-sm">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center">Material Flow Analysis</h2>
+    
+    <!-- Two columns: Sankey (left) + Text (right) -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      
+      <!-- Left: Sankey Diagram + Index -->
+      <div class="animate-fade-in-up flex flex-col items-center">
+        <img src="image/MB Sankey Poster_3.svg" 
+             alt="Sankey Diagram of Material Flow" 
+             class="diagram-img w-[700px] h-auto mb-6">
+
+        <img src="image/Index_2.svg" 
+             alt="Index for Sankey Diagram" 
+             class="index-img">
+      </div>
+
+      <!-- Right: Text Description -->
+      <div class="card animate-fade-in-up">
+        <h3 class="text-3xl font-semibold text-white mb-6 flex items-center">
+          <i class="fas fa-project-diagram text-[#4ade80] mr-3"></i> Sankey Diagram Explanation
+        </h3>
+        <p class="text-gray-300 leading-relaxed text-lg">
+          This Sankey diagram visualizes the mass balance in the facility under steady-state 
+          and full glass fiber recovery assumptions. Input: 4438 tonnes/year of shredded 
+          composite blade waste. Outputs: 4745 tonnes/year of photoluminescent safety tiles 
+          (primary), with recovered glass fibers, recycled solvents (H₂O₂/CH₃COOH recovery >90%), 
+          and minimal waste.
+        </p>
+                <p class="text-base text-gray-400 mt-4">
+          ChemCAD simulations confirm near-complete degradation at φ=0.71 and 3-hour residence time.
+        </p>
+            </div>
+
+             </div>
+          </div>
+           </section>
+        </details>
+        <details>
+          <summary>Reactor Design</summary>
+          <div class="p-4 bg-gray-950 rounded-lg">
+            <p class="text-gray-300">Our solvolysis reactors operate at 90°C under atmospheric pressure with a 3-hour residence time. Integrated agitators ensure uniform processing and prevent matrix sticking, optimizing efficiency.</p>
+                  <div class="animate-fade-in-up flex justify-center">
+        <img src="image/reactor.png" 
+             alt="Reactor" 
+             class="diagram-img w-[700px] h-auto">
+      </div>
+          </div>
+        </details>
+        <details>
+          <summary>ChemCAD Simulation</summary>
+  <section id="chemcad" class="py-24 bg-gray-900/40 backdrop-blur-sm">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">ChemCAD Simulation</h2>
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="animate-fade-in-up">
+          <img src="image/cehmplant_graph1.png" 
+               alt="ChemCAD Simulation of Solvolysis Batch Reactors" class="diagram-img">
+        </div>
+        <div class="card animate-fade-in-up">
+          <h3 class="text-3xl font-semibold text-white mb-6 flex items-center">
+            <i class="fas fa-sim-card text-[#4ade80] mr-3"></i>ChemCAD Analysis
+          </h3>
+          <p class="text-gray-300 leading-relaxed text-lg">
+            ChemCAD simulations model the semi-batch solvolysis reactors, 
+            validating pseudo-first-order kinetics for epoxy degradation. At φ=0.71 and 3-hour 
+            residence time, nearly complete degradation is achieved.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+        </details>
+        <details>
+          <summary>Process Flow Diagram (PFD)</summary>
+ <section id="pfd" class="py-24 bg-gray-950/40 backdrop-blur-sm">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Process Flow Diagram (PFD)</h2>
+      <div class="grid md:grid-cols-1 gap-16 mb-16">
+        <div class="animate-fade-in-up">
+          <img src="image/pfdv3vector.svg" 
+               alt="Process Flow Diagram (PFD)" class="diagram-img w-full h-[800px] object-contain">
+        </div>
+        <div class="card animate-fade-in-up">
+          <h3 class="text-3xl font-semibold text-white mb-6 flex items-center">
+            <i class="fas fa-sitemap text-[#4ade80] mr-3"></i>Process Flow Diagram (PFD)
+          </h3>
+          <p class="text-gray-300 leading-relaxed text-lg">
+            The updated PFD illustrates the comprehensive flow: Blade waste is shredded and separated, 
+            mixed with solvents (H₂O₂/CH₃COOH/H₂O), processed in four solvolysis reactors, followed by 
+            filtration, washing, drying, curing, and molding.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+        </details>
+        <details>
+          <summary>Plant Location</summary>
+<!-- Plant Location Section -->
+<section id="location" class="py-24 bg-gray-900/40 backdrop-blur-sm">
+  <div class="container mx-auto px-6">
+    <h2 class="section-title text-center">Plant Location</h2>
+    
+    <!-- Grid: 2 columns (map + text) -->
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      
+      <!-- Map -->
+      <div class="animate-fade-in-up flex justify-center">
+        <img src="image/location.svg" 
+             alt="Plant Location" 
+             class="diagram-img w-[700px] h-auto">
+      </div>
+
+      <!-- Text Card -->
+      <div class="card animate-fade-in-up">
+        <h3 class="text-3xl font-semibold text-white mb-6 flex items-center">
+          <i class="fas fa-map-marker-alt text-[#4ade80] mr-3"></i>Plant Location
+        </h3>
+        <p class="text-gray-300 leading-relaxed text-lg">
+Our proposed facility in Wilhelmshaven, Germany, is strategically located for efficient logistics and access to wind turbine waste streams.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+        </details>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Documents Section -->
+  <section id="documents" class="py-20 bg-gray-950">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Project Documents</h2>
+      <div class="grid md:grid-cols-3 gap-10">
+        <div class="card text-center">
+          <i class="fas fa-file-pdf text-6xl text-[#4ade80] mb-6"></i>
+          <h3 class="text-2xl font-semibold text-white mb-4">Abstract</h3>
+          <a href="pdfs/Abstract_Ulm_University_Team.pdf" class="pdf-link" download>
+            <i class="fas fa-download mr-3"></i>Download
+          </a>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-file-alt text-6xl text-[#4ade80] mb-6"></i>
+          <h3 class="text-2xl font-semibold text-white mb-4">Full Report</h3>
+          <a href="pdfs/Final_Report_Ulm_University_Team.pdf" class="pdf-link" download>
+            <i class="fas fa-download mr-3"></i>Download
+          </a>
+        </div>
+        <div class="card text-center">
+          <i class="fas fa-file-pdf text-6xl text-[#4ade80] mb-6"></i>
+          <h3 class="text-2xl font-semibold text-white mb-4">Poster</h3>
+          <a href="pdfs/Poster.pdf" class="pdf-link" download>
+            <i class="fas fa-download mr-3"></i>Download
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Team Section -->
+  <section id="team" class="py-20 bg-gray-900">
+    <div class="container mx-auto px-6">
+      <h2 class="section-title text-center">Meet the Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div class="card flex flex-col items-center text-center">
+          <img src="image/Humay.jpg.jpg" alt="Humay Hamidli" class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-[#006d4b] shadow-md">
+          <h3 class="text-xl font-semibold text-white">Humay Hamidli</h3>
+          <p class="text-gray-400">Conceptual Design & Holistic Approach</p>
+        </div>
+        <div class="card flex flex-col items-center text-center">
+          <img src="image/Gozal.jpg.jpg" alt="Gozal Humbatzada" class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-[#006d4b] shadow-md">
+          <h3 class="text-xl font-semibold text-white">Gozal Humbatzada</h3>
+          <p class="text-gray-400">Supply Chain & Product Development</p>
+        </div>
+        <div class="card flex flex-col items-center text-center">
+          <img src="image/Hasan.jpg.jpg" alt="Hasan Babayev" class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-[#006d4b] shadow-md">
+          <h3 class="text-xl font-semibold text-white">Hasan Babayev</h3>
+          <p class="text-gray-400">Process Development & Economic Evaluation</p>
+        </div>
+        <div class="card flex flex-col items-center text-center">
+          <img src="image/Nigar.jpg.jpg" alt="Nigar Baghirzade" class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-[#006d4b] shadow-md">
+          <h3 class="text-xl font-semibold text-white">Nigar Baghirzade</h3>
+          <p class="text-gray-400">Footprint Analysis & Control Strategy</p>
+        </div>
+        <div class="card flex flex-col items-center text-center">
+          <img src="image/Muntaha.jpg.jpg" alt="Muntaha Shaikh" class="w-32 h-32 rounded-full mb-4 object-cover border-4 border-[#006d4b] shadow-md">
+          <h3 class="text-xl font-semibold text-white">Muntaha Shaikh</h3>
+          <p class="text-gray-400">Marketing Strategy</p>
+        </div>
+      </div>
+      <h3 class="text-3xl font-semibold text-center mt-12 mb-6 text-[#4ade80]">Supervisors</h3>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="card flex flex-col items-center text-center">
+          <h4 class="text-xl font-semibold text-white">Hannes Stagge, M.Sc.</h4>
+          <p class="text-gray-400">Supervisor – Institute of Chemical Engineering, Ulm University</p>
+        </div>
+        <div class="card flex flex-col items-center text-center">
+          <h4 class="text-xl font-semibold text-white">Prof. Dr.-Ing. Robert Güttel</h4>
+          <p class="text-gray-400">Lecturer in Charge – Institute of Chemical Engineering, Ulm University</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Section -->
+  <section id="contact" class="py-20 bg-gray-950">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="section-title text-center">Contact Us</h2>
+      <p class="text-lg mb-6 text-gray-300 max-w-2xl mx-auto">
+        Let’s collaborate to create safer, greener infrastructure. Reach out to our team for inquiries or further details about the GLARION project.
+      </p>
+      <div class="flex flex-col items-center gap-4">
+        <a href="mailto:humay.hamidli@uni-ulm.de" class="text-lg font-semibold text-[#4ade80] hover:text-white hover:underline flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Humay Hamidli
+        </a>
+        <a href="mailto:gozal.humbatzada@uni-ulm.de" class="text-lg font-semibold text-[#4ade80] hover:text-white hover:underline flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Gozal Humbatzada
+        </a>
+        <a href="mailto:hasan.babayev@uni-ulm.de" class="text-lg font-semibold text-[#4ade80] hover:text-white hover:underline flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Hasan Babayev
+        </a>
+        <a href="mailto:nigar.baghirzade@uni-ulm.de" class="text-lg font-semibold text-[#4ade80] hover:text-white hover:underline flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Nigar Baghirzade
+        </a>
+        <a href="mailto:muntaha.shaikh@uni-ulm.de" class="text-lg font-semibold text-[#4ade80] hover:text-white hover:underline flex items-center gap-2">
+          <i class="fas fa-envelope"></i> Muntaha Shaikh
+        </a>
+        <p class="text-sm text-gray-500 mt-4">
+          Institute of Chemical Engineering, Ulm University
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="py-10 text-center text-gray-400 bg-gray-900">
+    <p>&copy; 2025 GLARION Project | Ulm University Team</p>
+  </footer>
+</body>
+</html>
